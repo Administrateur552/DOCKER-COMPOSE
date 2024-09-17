@@ -1,0 +1,13 @@
+version: '3'
+services:
+    web:
+        build: ./docker-compose
+        ports:
+            - "5000:5000"
+        volumes:
+            - ./docker-compose:/docker-compose
+        depends_on:
+            - redis-container
+
+    redis-container:
+        image: redis
